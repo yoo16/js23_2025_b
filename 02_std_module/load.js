@@ -3,8 +3,11 @@
  */
 // 0) モジュール読み込み
 // TODO: fsモジュール読み込む: CommonJS形式
+// req
+const fs = require('fs');
 
 // TODO: pathモジュールを読み込む: CommonJS形式
+const path = require('path');
 
 /**
  * ファイル読み込み処理
@@ -16,7 +19,7 @@ const filePath = "";
 console.log("📖 ファイル読み込み開始（非同期）...");
 
 // 2) 非同期でファイル読み込み
-// TODO: readFileSync(パス, 文字コード, コールバック関数)
+// TODO: readFile(パス, 文字コード, コールバック関数)
 // コールバック関数: handleRead
 
 // 3) ファイル読み込み中のメッセージ

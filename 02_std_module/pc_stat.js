@@ -1,6 +1,8 @@
 // TODO: osモジュールインポート
 // ES5:CommonJS形式
-const os = require('os');
+// const os = require('os');
+// ES6:ESModule形式
+import os from "os";
 
 // OS情報取得
 const type = os.type();

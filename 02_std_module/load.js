@@ -14,6 +14,7 @@ const path = require('path');
  */
 // TODO: 現在のディレクトリパスから、data/products.json を指定
 // join() と __dirname を使用
+// ./data/products.json
 const filePath = path.join(__dirname, 'data', 'projects.json');
 
 // 1) 最初に実行
@@ -22,6 +23,7 @@ console.log("📖 ファイル読み込み開始（非同期）...");
 // 2) 非同期でファイル読み込み
 // TODO: readFile(パス, 文字コード, コールバック関数)
 // コールバック関数: handleRead
+fs.readFile(filePath, 'utf8', handleRead)
 
 // 3) ファイル読み込み中のメッセージ
 console.log("⚙️ ファイル読み込み中...");

@@ -10,7 +10,8 @@ import path from 'path';
 /**
  * ファイル書き出し
  */
-// TODO: __dirname を定義: EMS環境では必須
+// TODO: __dirname を定義: EMS環境では必須: resolve()
+const __dirname = path.resolve()
 
 // 現在のディレクトリパスから、data/student.json を指定
 const filePath = path.join(__dirname, "data", "student.json");
@@ -26,7 +27,7 @@ const student = {
 };
 
 // TODO: student を JSONに変換
-const json = {};
+const json = JSON.stringify(student);
 
 try {
     // TODO: 2) writeFile() で非同期ファイル書き込み

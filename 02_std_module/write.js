@@ -32,6 +32,7 @@ const json = JSON.stringify(student);
 try {
     // TODO: 2) writeFile() で非同期ファイル書き込み
     // コールバック関数: handleWrite
+    fs.writeFile(filePath, json, handleWrite)
 } catch (error) {
     console.error("❌ ファイル書き出しエラー:", error.message);
 }

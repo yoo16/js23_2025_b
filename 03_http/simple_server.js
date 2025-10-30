@@ -2,6 +2,7 @@
 import http from 'http';
 
 // TODO: HTTPサーバ作成: http.createServer()
+const server = http.createServer((req, res) => {
     // ---- ここから記述 ----
     // TODO: ヘッダー
 
@@ -17,6 +18,8 @@ import http from 'http';
 
     // TODO: レスポンス終了
     // ---- ここまで記述 ----
+})
+
 
 // TODO: サーバホスト: localhost
 const HOST = "";

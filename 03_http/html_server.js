@@ -47,13 +47,15 @@ const server = http.createServer((req, res) => {
     if (pathname === "/") pathname = "/index.html";
 
     // アクセスファイルの絶対パス
+    // ./public/index.html, ./public/about.html など
     const filePath = path.join(publicDir, pathname);
 
     // ファイル存在チェック
+    // 仮に profile.html がきたときは、存在しないので 404 にする
     if (!fs.existsSync(filePath)) {
         // TODO: 404 Not Found
-        // res.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" });
-        // res.end("404 Not Found\n");
+        res.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" });
+        res.end("404 Not Found\n");
         return;
     }
 
@@ -78,7 +80,9 @@ const server = http.createServer((req, res) => {
         // }
 
         // TODO: 200 OK → ファイルのデータをレスポンス
-
+        res.writeHead(200, { "Content-Type": mime });
+        // TODO データをレスポンスに書き込む: res.end()
+        res.end(data);
     });
 });
 

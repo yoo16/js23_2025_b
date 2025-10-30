@@ -4,7 +4,10 @@ import http from 'http';
 // TODO: HTTPサーバ作成: http.createServer()
 const server = http.createServer((req, res) => {
     // ---- ここから記述 ----
-    // TODO: ヘッダー
+    // TODO: ヘッダー: 200 OK
+    res.writeHead(200, {
+        "Content-Type": "application/json; charset=utf-8"
+    })
 
     // データ作成
     const data = {

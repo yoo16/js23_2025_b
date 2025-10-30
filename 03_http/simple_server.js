@@ -18,8 +18,10 @@ const server = http.createServer((req, res) => {
     const json = JSON.stringify(data, null, 2);
 
     // TODO: JSONレスポンス
+    res.write(json)
 
     // TODO: レスポンス終了
+    res.end()
     // ---- ここまで記述 ----
 })
 

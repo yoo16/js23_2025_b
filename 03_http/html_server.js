@@ -33,13 +33,18 @@ const mimeTypes = {
 // ==============================
 const server = http.createServer((req, res) => {
     // TODO: URLパース: url.parse()
-    const parsed = {};
+    // URLを解析する
+    // http://localhost:3000/?name=abc などのURLを解析
+    const parsed = url.parse(req.url);
     // TODO: パス名取得: pathname
-    let pathname = "";
+    // http://localhost:3000/ = > /
+    // http://localhost:3000/about.html = > /about.html
+    let pathname = parsed.pathname;
     // パス名ログ出力
     console.log(`pathname: ${pathname}`);
 
     // TODO: パスが「 / 」なら pathname = /index.html
+    if (pathname === "/") pathname = "/index.html";
 
     // アクセスファイルの絶対パス
     const filePath = path.join(publicDir, pathname);

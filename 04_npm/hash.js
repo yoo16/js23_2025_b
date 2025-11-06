@@ -22,8 +22,9 @@ console.table(result);
 // 新しいパスワード（平文）
 const newPassword = '2222';
 // TODO: ソルト生成（文字）: genSaltSync() 
+const salt = bcrypt.genSaltSync(10);
 // TODO: ハッシュ化: hashSync()
-const newHash = "";
+const newHash = bcrypt.hashSync(newPassword, salt);
 
 // 結果表示
 result = { newPassword, newHash }

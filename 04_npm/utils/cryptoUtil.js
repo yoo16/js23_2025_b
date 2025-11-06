@@ -36,6 +36,7 @@ function decrypt(encryptedData, key) {
 }
 
 // TODO: エクスポート: module.exports で各メソッドを公開
+// ES5(CommonJS）形式のエクスポート
 module.exports = {
     generateKey,
     encrypt,

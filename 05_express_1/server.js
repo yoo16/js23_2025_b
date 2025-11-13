@@ -51,6 +51,12 @@ app.all('/info', (req, res) => {
 });
 
 // TODO: POST /save
+app.post('/save', (req, res) => {
+    console.log("ルーティング: /save");
+    const message = 'データを保存しました!';
+    // クライアントにレスポンスを送信
+    res.send(message);
+});
 
 // TODO: GET /
 // /public/home.html

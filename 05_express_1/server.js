@@ -35,13 +35,20 @@ const app = express()
 // ルーティング
 // ------------------------
 // TODO: GET /test
-// app.get('/test', (req, res) => {
-//     console.log("ルーティング: /test");
-//     const message = 'Hello, Express!';
-//     res.send(message);
-// });
+app.get('/test', (req, res) => {
+    console.log("ルーティング: /test");
+    const message = 'Hello, Express!';
+    // クライアントにレスポンスを送信
+    res.send(message);
+});
 
-// TODO: GET /info
+// TODO: ALL /info
+app.all('/info', (req, res) => {
+    console.log("ルーティング: /info");
+    const message = 'どのHTTPメソッドでもOK!';
+    // クライアントにレスポンスを送信
+    res.send(message);
+});
 
 // TODO: POST /save
 

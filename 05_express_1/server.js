@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 // path モジュールのインポート
 import path from 'path';
 // TODO: express インポート(ESM)
+import express from 'express';
 
 // 環境変数の取得（デフォルト値も設定）
 dotenv.config();
@@ -18,6 +19,7 @@ const status = { HOST, PORT, BASE_URL, __dirname };
 console.log(status);
 
 // TODO: Expressアプリケーションの初期化
+const app = express()
 
 // ミドルウェア設定
 // TODO: JSONボディパーサー
@@ -56,6 +58,6 @@ console.log(status);
 // /public/product.html
 
 // TODO: Express 起動
-// app.listen(PORT, HOST, () => {
-//     console.log(`Server running: ${BASE_URL}`);
-// });
+app.listen(PORT, HOST, () => {
+    console.log(`Server running: ${BASE_URL}`);
+});

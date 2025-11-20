@@ -1,9 +1,7 @@
 // fs モジュールのインポート
 import fs from 'fs';
-// 現在のディレクトリパスを取得
-const __dirname = new URL('.', import.meta.url).pathname;
 // データファイルのパス
-const path = __dirname + '/../data/products.json';
+const path = './data/products.json';
 
 // ------------------------
 // 商品データを読み込む

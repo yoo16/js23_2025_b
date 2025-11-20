@@ -6,7 +6,11 @@ import path from 'path';
 import express from 'express';
 
 // TODO: カスタムモジュールの読み込み ./models/Product.js
-import { fetchProducts, findProductById } from './models/Product.js';
+import {
+    fetchProducts,
+    findProductById,
+    searchProducts,
+} from './models/Product.js';
 
 // 環境変数の取得（デフォルト値も設定）
 dotenv.config();
@@ -30,7 +34,7 @@ const app = express()
 app.use((req, res, next) => {
     console.log(`ミドルウェア: ${req.method} ${req.url}`);
     // 次の処理へ
-    next(); 
+    next();
 });
 
 // TODO: JSONボディパーサー
@@ -132,6 +136,17 @@ app.get('/api/product/show/:id', (req, res) => {
     const product = findProductById(id)
     // JSON レスポンスを送信
     res.json(product);
+});
+
+// TODO: GET /api/search?keyword=xxxx
+app.get('/api/search', (req, res) => {
+    console.log("ルーティング: /api/seach");
+    // キーワード取得（クエリーパラメータ）
+    const keyword = req.query.keyword
+    // 商品データを取得
+    const products = searchProducts(keyword)
+    // JSON レスポンスを送信
+    res.json({ products });
 });
 
 // TODO: Express 起動

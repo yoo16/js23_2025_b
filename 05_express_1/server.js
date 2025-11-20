@@ -78,8 +78,12 @@ app.get('/about', (req, res) => {
 
 // TODO: GET /search  => keyword クエリパラメータ対応
 // /public/home.html
+// http://localhost:3000/search?keyword=xxxxx とかのURLでブラウザでアクセス
 app.get('/search', (req, res) => {
     console.log("ルーティング: /search");
+    // クエリパラメータで keyword を取得
+    const keyword = req.query.keyword
+    console.log(keyword)
     // クライアントにレスポンスを送信
     const path = __dirname + '/public/home.html'
     res.sendFile(path);

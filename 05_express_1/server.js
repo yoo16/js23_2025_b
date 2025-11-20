@@ -87,8 +87,12 @@ app.get('/search', (req, res) => {
 
 // TODO GET /product/:id  => id パスパラメータ対応
 // /public/product.html
+// http://localhost:3000/product/1 とかのURLでブラウザでアクセス
 app.get('/product/:id', (req, res) => {
     console.log("ルーティング: /product/:id");
+    // パスパラメータで id を取得
+    const id = req.params.id
+    console.log(id);
     // クライアントにレスポンスを送信
     const path = __dirname + '/public/product.html'
     res.sendFile(path);

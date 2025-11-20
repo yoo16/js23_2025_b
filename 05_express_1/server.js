@@ -5,6 +5,9 @@ import path from 'path';
 // TODO: express インポート(ESM)
 import express from 'express';
 
+// TODO: カスタムモジュールの読み込み ./models/Product.js
+import { fetchProducts } from './models/Product.js';
+
 // 環境変数の取得（デフォルト値も設定）
 dotenv.config();
 const HOST = process.env.HOST || 'localhost';
@@ -22,6 +25,14 @@ console.log(status);
 const app = express()
 
 // ミドルウェア設定
+// リクエストログ用ミドルウェア
+// どのリクエストがきても最初に実行される
+app.use((req, res, next) => {
+    console.log(`ミドルウェア: ${req.method} ${req.url}`);
+    // 次の処理へ
+    next(); 
+});
+
 // TODO: JSONボディパーサー
 // app.use(express.json());
 
@@ -29,7 +40,7 @@ const app = express()
 // app.use(express.urlencoded({ extended: true }));
 
 // TODO: 静的ファイルの公開: /public
-// app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public'));
 
 // ------------------------
 // ルーティング
@@ -100,6 +111,16 @@ app.get('/product/:id', (req, res) => {
     // クライアントにレスポンスを送信
     const path = __dirname + '/public/product.html'
     res.sendFile(path);
+});
+
+// APIルーティング
+// TODO: GET /api/product/list
+app.get('/api/product/list', (req, res) => {
+    console.log("ルーティング: /api/product/list");
+    // 商品データを取得
+    const products = fetchProducts()
+    // JSON レスポンスを送信
+    res.json({ products });
 });
 
 // TODO: Express 起動

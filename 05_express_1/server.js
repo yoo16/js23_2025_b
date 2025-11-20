@@ -6,7 +6,7 @@ import path from 'path';
 import express from 'express';
 
 // TODO: カスタムモジュールの読み込み ./models/Product.js
-import { fetchProducts } from './models/Product.js';
+import { fetchProducts, findProductById } from './models/Product.js';
 
 // 環境変数の取得（デフォルト値も設定）
 dotenv.config();
@@ -121,6 +121,17 @@ app.get('/api/product/list', (req, res) => {
     const products = fetchProducts()
     // JSON レスポンスを送信
     res.json({ products });
+});
+
+// TODO: GET /api/product/show/:id
+app.get('/api/product/show/:id', (req, res) => {
+    console.log("ルーティング: /api/product/show/:id");
+    // 商品IDを取得
+    const id = req.params.id
+    // 商品データを取得
+    const product = findProductById(id)
+    // JSON レスポンスを送信
+    res.json(product);
 });
 
 // TODO: Express 起動

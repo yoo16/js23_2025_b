@@ -1,13 +1,16 @@
 // fs モジュールのインポート
 import fs from 'fs';
+import path from 'path';
+
 // データファイルのパス
-const path = './data/products.json';
+const __direname = path.resolve();
+const filePath = __direname + '/data/products.json';
 
 // ------------------------
 // 商品データを読み込む
 // ------------------------
 export function fetchProducts() {
-    const data = fs.readFileSync(path, 'utf-8');
+    const data = fs.readFileSync(filePath, 'utf-8');
     return JSON.parse(data);
 }
 

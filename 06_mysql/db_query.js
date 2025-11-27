@@ -9,9 +9,14 @@ import { pool } from './lib/db.js';
 // const sql = "SELECT COUNT(id) AS user_count FROM users;"
 
 // users テーブルから email が user1@test.com のユーザーを取得
+// const sql = `SELECT name, email 
+//                 FROM users 
+//                 WHERE email = 'user1@test.com';`
+
+// users テーブルから name に mr を含むユーザーを取得
 const sql = `SELECT name, email 
                 FROM users 
-                WHERE email = 'user1@test.com';`
+                WHERE name LIKE '%mr%';`
 
 // TODO: SQLクエリー実行:非同期通信
 const [rows] = await pool.query(sql)

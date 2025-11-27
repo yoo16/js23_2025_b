@@ -1,6 +1,6 @@
 // TODO: mysql2 モジュールインポート
 import mysql from 'mysql2/promise';
-
+// dotenv モジュールインポート
 import dotenv from 'dotenv';
 
 // DB接続情報を.envから取得
@@ -23,13 +23,13 @@ const config = {
 console.table(config);
 
 // TODO: プール作成: createPool() で DB接続プールを作成
-const pool = {}
+const pool = mysql.createPool(config)
 
 // テスト用SQL実行関数
 export async function connect() {
     try {
         // TODO: DB設定なしで非同期接続: getConnection() 
-        const connection = null
+        const connection = pool.getConnection()
         if (connection) {
             console.log('DB接続成功!');
         } else {
@@ -39,6 +39,7 @@ export async function connect() {
         console.error(e);
     } finally {
         // TODO: プール切断: end()
+        await pool.end()
     }
 }
 

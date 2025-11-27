@@ -39,7 +39,7 @@ export async function connect() {
         console.error(e);
     } finally {
         // TODO: プール切断: end()
-        await pool.end
+        await pool.end()
     }
 }
 

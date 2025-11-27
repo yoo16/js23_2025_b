@@ -29,7 +29,7 @@ const pool = mysql.createPool(config)
 export async function connect() {
     try {
         // TODO: DB設定なしで非同期接続: getConnection() 
-        const connection = pool.getConnection()
+        const connection = await pool.getConnection()
         if (connection) {
             console.log('DB接続成功!');
         } else {
@@ -39,7 +39,7 @@ export async function connect() {
         console.error(e);
     } finally {
         // TODO: プール切断: end()
-        await pool.end()
+        await pool.end
     }
 }
 

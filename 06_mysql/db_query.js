@@ -14,9 +14,16 @@ import { pool } from './lib/db.js';
 //                 WHERE email = 'user1@test.com';`
 
 // users テーブルから name に mr を含むユーザーを取得
-const sql = `SELECT name, email 
-                FROM users 
-                WHERE name LIKE '%mr%';`
+// const sql = `SELECT name, email 
+//                 FROM users 
+//                 WHERE name LIKE '%mr%';`
+
+// feeds に新しいレコードを追加
+const userSql = `SELECT id FROM users WHERE email = 'user1@test.com';`
+const [userRows] = await pool.query(userSql);
+const userId = userRows[0].id;
+const sql = `INSERT INTO feeds (user_id, content) 
+                VALUES ('${userId}', 'Hello');`
 
 // TODO: SQLクエリー実行:非同期通信
 const [rows] = await pool.query(sql)

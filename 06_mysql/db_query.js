@@ -18,10 +18,12 @@ import { pool } from './lib/db.js';
 //                 FROM users 
 //                 WHERE name LIKE '%mr%';`
 
-// feeds に新しいレコードを追加
+// email が user1@test.com のユーザ id を取得
 const userSql = `SELECT id FROM users WHERE email = 'user1@test.com';`
 const [userRows] = await pool.query(userSql);
 const userId = userRows[0].id;
+
+// feeds に新しいレコードを追加
 const sql = `INSERT INTO feeds (user_id, content) 
                 VALUES ('${userId}', 'Hello');`
 

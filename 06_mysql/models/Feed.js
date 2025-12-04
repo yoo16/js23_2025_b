@@ -5,10 +5,12 @@ export const fetchAll = async (limit = 20) => {
     // 1) feeds と users テーブルを結合
     // 2) feeds と users.user_nameを取得
     // 3) created_at の降順(DESC)で取得
+    // 4) limit 件数分だけ取得
     const sql = `SELECT feeds.*, users.name AS user_name 
                     FROM feeds
                     JOIN users ON feeds.user_id = users.id
                     ORDER BY feeds.created_at DESC
+                    LIMIT ?
                     ;`
     // SQL 実行
     const [feeds] = await pool.query(sql, [limit]);

@@ -126,7 +126,7 @@ export const auth = async (email, password) => {
         // ユーザー存在チェック
         const existUser = findByEmail(email);
         // パスワード照合
-        if (existUser && bcrypt.compareSync(password, existsUser.password)) {
+        if (existUser && bcrypt.compareSync(password, existUser.password)) {
             return {
                 user: existUser,
                 sql: "",

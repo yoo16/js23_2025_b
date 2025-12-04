@@ -130,7 +130,7 @@ export const auth = async (email, password) => {
             return {
                 user: existUser,
                 sql: "",
-                errors,
+                errors: [],
             };
         } else {
             return {

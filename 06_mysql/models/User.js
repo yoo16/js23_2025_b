@@ -94,7 +94,9 @@ export const update = async (id, posts) => {
         // TODO: SQL 文
         // 1) UPDATE 文で users の name, email を更新
         // 2) users.id で検索
-        const sql = ``;
+        const sql = `UPDATE users
+                        SET name = ?, email = ?
+                        WHERE id = ?;`;
         // SQL 実行
         const params = [name, email, id];
         const [rows] = await pool.query(sql, params);

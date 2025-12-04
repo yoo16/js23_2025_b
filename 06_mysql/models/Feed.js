@@ -35,7 +35,9 @@ export const insert = async (posts) => {
         // TODO: SQL 文
         // feeds テーブルに user_id, content を挿入
         // バッククォーとで囲む
-        const sql = ``;
+        const sql = `INSERT INTO feeds
+                        (user_id, content)
+                        VALUES (?, ?);`;
         // SQL 実行
         const params = [user_id, content];
         const [rows] = await pool.query(sql, params);

@@ -20,7 +20,7 @@ export const fetchAll = async (limit = 20) => {
 export const find = async (id) => {
     // TODO: SQL 文
     // users テーブルから id 指定で取得
-    const sql = ``;
+    const sql = `SELECT * FROM users WHERE id = ?;`;
     // SQL 実行
     const [rows] = await pool.query(sql, [id]);
     // 結果返却 JSON

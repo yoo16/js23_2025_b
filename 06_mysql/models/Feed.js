@@ -91,7 +91,8 @@ export const insertInjection = async (posts) => {
 export const destroy = async (id) => {
     try {
         // TODO: SQL 文
-        const sql = '';
+        // バッククォーとで囲む
+        const sql = 'DELETE FROM feeds WHERE id = ?;';
         const params = [id];
         const result = await pool.query(sql, params);
         const data = {

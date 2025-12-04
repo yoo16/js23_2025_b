@@ -49,9 +49,9 @@ export const findByEmail = async (email) => {
     try {
         // TODO: SQL 文
         // users テーブルから email 指定で取得
-        const sql = '';
+        const sql = 'SELECT * FROM users WHERE email = ?;';
         // TODO: パラメータ配列
-        const params = [];
+        const params = [email];
         const result = await pool.query(sql, params);
         const users = result[0];
         return users[0];

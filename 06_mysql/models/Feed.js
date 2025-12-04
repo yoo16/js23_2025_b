@@ -5,7 +5,9 @@ export const fetchAll = async (limit = 20) => {
     // 1) feeds と users テーブルを結合
     // 2) feeds と users.user_nameを取得
     // 3) created_at の降順で取得
-    const sql = ``
+    const sql = `SELECT feeds.*, users.name AS user_name 
+                    FROM feeds
+                    JOIN users ON feeds.user_id = users.id;`
     // SQL 実行
     const [feeds] = await pool.query(sql, [limit]);
     // 結果返却

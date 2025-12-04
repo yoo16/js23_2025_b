@@ -5,7 +5,8 @@ export const fetchAll = async (limit = 20) => {
     // TODO: SQL 文
     // 1) users 取得、
     // 2) 指定した limit で件数制限
-    const sql = ``;
+    // ? はプレースホルダー：何軒になるか不明な値を後でいれる記号
+    const sql = `SELECT * FROM users LIMIT ?`;
     // SQL 実行
     const [rows] = await pool.query(sql, [limit]);
     // 結果返却

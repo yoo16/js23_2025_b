@@ -12,7 +12,11 @@ const index = (req, res) => {
     // 1. latestProducts
     // 2. latestChannels
     // 3. categories
-    const data = { }
+    const data = {
+        latestProducts,
+        latestChannels,
+        categories,
+    }
 
     // TODO: ビュー表示
     // 1. views/home/index.ejs をレンダリング: res.render()

@@ -17,9 +17,10 @@ const index = (req, res) => {
     // TODO: ビュー表示
     // 1. views/home/index.ejs をレンダリング: res.render()
     // 2. データを渡す
+    res.render('home/index');
 
     // TODO: 仮のレスポンス: コメントアウトして削除
-    res.end('res.render() で views/home/index.ejs をレンダリングが必要');
+    // res.end('res.render() で views/home/index.ejs をレンダリングが必要');
 };
 
 export default {

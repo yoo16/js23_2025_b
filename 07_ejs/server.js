@@ -30,7 +30,7 @@ const app = express();
 // app.set('layout', 'layout');
 
 // TODO: テンプレートエンジン EJS を使用: src/views ディレクトリを設定
-// app.set('view engine', 'ejs');
+app.set('view engine', 'ejs');
 // app.set('views', path.join(__dirname, 'src', 'views'));
 
 // 静的コンテンツの公開

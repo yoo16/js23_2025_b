@@ -20,8 +20,8 @@ const index = (req, res) => {
 
     // TODO: ビュー表示
     // 1. views/home/index.ejs をレンダリング: res.render()
-    // 2. データを渡す
-    return res.render('home/index');
+    // 2. data データを渡す
+    return res.render('home/index', data);
 
     // TODO: 仮のレスポンス: コメントアウトして削除
     // res.end('res.render() で views/home/index.ejs をレンダリングが必要');

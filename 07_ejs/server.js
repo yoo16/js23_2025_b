@@ -6,7 +6,7 @@ import dotenv from 'dotenv';
 import routes from './src/routes/index.js';
 
 // TODO: express-ejs-layouts をインポート: expressLayouts
-// import expressLayouts from 'express-ejs-layouts';
+import expressLayouts from 'express-ejs-layouts';
 
 // TODO: express-session をインポート
 // import session from 'express-session';
@@ -26,8 +26,8 @@ const __dirname = path.resolve();
 const app = express();
 
 // TODO: レイアウトを有効にする
-// app.use(expressLayouts);
-// app.set('layout', 'layout');
+app.use(expressLayouts);
+app.set('layout', 'layout');
 
 // TODO: テンプレートエンジン EJS を使用: src/views ディレクトリを設定
 app.set('view engine', 'ejs');

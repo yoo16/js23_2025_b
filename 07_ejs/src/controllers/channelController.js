@@ -18,9 +18,9 @@ const index = (req, res) => {
 // チャンネル詳細表示
 const show = (req, res) => {
     // TODO: リクエストパラメータからチャンネルIDを取得
-    const id = 1;
+    const id = req.params.id;
     // TODO: チャンネルを取得: Channelモデルのfindメソッドを使用: Channel().find(id)
-    const channel = {};
+    const channel = Channel().find(id)
     if (!channel) {
         // チャンネルが存在しない場合は、トップページにリダイレクト
         res.redirect('/');
@@ -30,7 +30,8 @@ const show = (req, res) => {
         channel,
     }
     // TODO: views/channel/show.ejs ビューにチャンネルを渡す
-    res.end("views/channel/show.ejs を res.render() で表示");
+    return res.render('channel/show', data)
+    // res.end("views/channel/show.ejs を res.render() で表示");
 };
 
 export default {

@@ -25,13 +25,15 @@
                         - ejselif スニペットを活用
                         - Coming Soon を表示
                 -->
+                <% if (channel.status === 'on_air') { %>
                 <div class="absolute top-4 left-4 px-3 py-1 bg-red-600 text-white text-xs font-bold uppercase tracking-wider rounded-full shadow-md animate-pulse">
                     On Air
                 </div>
-
+                <% } else if (channel.status === 'coming_soon') { %>
                 <div class="absolute top-4 left-4 px-3 py-1 bg-sky-600 text-white text-xs font-bold uppercase tracking-wider rounded-full shadow-md">
                     Coming Soon
                 </div>
+                <% } %>
             </div>
         </div>
 
@@ -66,14 +68,16 @@
                     2. channel.status が 'coming_soon' の場合
                         - オンエアまでお待ちくださいボタンを表示
                 -->
+                <% if (channel.status === 'on_air') { %>
                 <button class="flex-1 bg-sky-600 hover:bg-sky-700 text-white font-bold py-3.5 px-6 rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 group">
                     <img src="/svg/play.svg" class="w-6 h-6 fill-current text-white">
                     <span>今すぐ再生する</span>
                 </button>
-
+                <% } else { %>
                 <button class="flex-1 sm:flex-none bg-white border border-gray-200 font-semibold py-3.5 px-6 rounded-xl flex items-center justify-center gap-2">
                     <span>オンエアまでお待ちください</span>
                 </button>
+                <% } %>
 
                 <button class="like-button flex-1 sm:flex-none bg-white border border-gray-200 text-gray-700 font-semibold py-3.5 px-6 rounded-xl transition-all flex items-center justify-center gap-2 group" data-like-type="channel" data-id="<%= channel.id %>">
                     <svg class="w-5 h-5 text-gray-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">

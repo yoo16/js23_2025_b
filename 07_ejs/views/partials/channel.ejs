@@ -19,7 +19,7 @@
                 2. alt にチャンネル名を設定: channel.name
                     ejsesc スニペットを活用
             -->
-            <img src="" alt=""
+            <img src="<%= channel.image %>" alt="<%= channel.name %>"
                 class="h-full w-full object-cover object-center group-hover:opacity-75 transition-opacity duration-300">
         </a>
 
@@ -40,12 +40,15 @@
         <div class="mt-4 px-2 pb-4">
             <!-- TODO: チャンネル名: channel.name: ejsout スニペットを活用 -->
             <h3 class="text-md font-bold text-gray-700 line-clamp-2 min-h-[40px] group-hover:text-sky-600 transition-colors">
+                <%= channel.name %>
             </h3>
             <!-- TODO: キャスト: channel.cast: ejsout スニペットを活用 -->
             <p class="mt-1 py-2 text-xs text-gray-900">
+                <%= channel.cast %>
             </p>
             <!-- TODO: 説明: channel.description: ejsout スニペットを活用 -->
             <p class="mt-1 text-sm text-gray-500 line-clamp-1">
+                <%= channel.description %>
             </p>
         </div>
     </a>

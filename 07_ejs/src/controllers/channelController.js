@@ -11,7 +11,8 @@ const index = (req, res) => {
     // TODO: ビューにチャンネルリストを渡す
     // 1. views/channel/index.ejs を設定: res.render()
     // 2. データをビューに渡す
-    res.end("views/channel/index.ejs を res.render() で表示");
+    return res.render('channel/index', data)
+    // res.end("views/channel/index.ejs を res.render() で表示");
 };
 
 // チャンネル詳細表示

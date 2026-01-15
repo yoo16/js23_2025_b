@@ -40,15 +40,15 @@ app.get("/stream", (req, res) => {
     startStreaming();
 
     // TODO: クライアント切断時の処理
-    // req.on("close", () => {
-    //     // クライアントを配列から削除
-    //     clients = clients.filter(client => client !== res);
-    //     if (clients.length === 0) {
-    //         // クライアントがいなくなったらインターバルを停止
-    //         clearInterval(stockInterval);
-    //         stockInterval = null;
-    //     }
-    // });
+    req.on("close", () => {
+        // クライアントを配列から削除
+        clients = clients.filter(client => client !== res);
+        if (clients.length === 0) {
+            // クライアントがいなくなったらインターバルを停止
+            clearInterval(stockInterval);
+            stockInterval = null;
+        }
+    });
 });
 
 app.listen(PORT, HOST, () => {
@@ -66,9 +66,13 @@ const startStreaming = () => {
         // type: "price"
         // time: 現在の時刻 (toLocaleTimeString)
         // value: currentPrice を小数点以下2桁でフォーマット
-        const data = JSON.stringify();
+        const data = JSON.stringify({
+            type: "price",
+            time: new Date().toLocaleDateString(),
+            value: currentPrice.toFixed(2),
+        });
 
         // TODO: すべてのクライアントにデータを送信
-        // clients.forEach(res => res.write(`data: ${data}\n\n`));
+        clients.forEach(res => res.write(`data: ${data}\n\n`));
     }, 1000);
 };

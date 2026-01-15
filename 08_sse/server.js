@@ -13,7 +13,7 @@ const __dirname = path.resolve();
 
 // クライアント管理用変数
 let clients = [];
-// 現在の株価（シミュレート用）
+// 現在の価格（シミュレート用）
 let currentPrice = 100;
 // SSE 用のインターバル管理変数
 let stockInterval = null;
@@ -21,12 +21,17 @@ let stockInterval = null;
 // TODO: 静的ファイルの提供 (publicフォルダ内の index.html 等)
 app.use(express.static(path.join(__dirname, "public")));
 
-// SSE エンドポイント
+// SSE エンドポイント: GET /stream
 app.get("/stream", (req, res) => {
     // TODO: ヘッダー書き込み: writeHead() 200
     // Content-Type: text/event-stream
     // Cache-Control: no-cache
     // Connection: keep-alive
+    res.writeHead(200, {
+        "Content-Type": "text/event-stream",
+        "Cache-Control": "no-cache",
+        "Connection": "keep-alive",
+    })
 
     // クライアントを配列に追加
     clients.push(res);

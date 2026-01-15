@@ -34,9 +34,9 @@ const chart = new Chart(ctx, {
 });
 
 // TODO: SSE 接続: EventSource() /stream 
-const eventSource = {}
+const eventSource = new EventSource('/stream')
 // TODO: メッセージ受信時の処理: eventSource.onmessage
-eventSource.xxx = (e) => {
+eventSource.onmessage = (e) => {
     try {
         // JSON パース
         const data = JSON.parse(e.data);

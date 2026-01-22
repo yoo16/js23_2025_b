@@ -21,6 +21,7 @@ export default (port, origin) => {
             message: "接続しました",
             date: dateString
         };
+        // 接続完了通知を本人のみに送信
         socket.emit('connected', data)
 
         // TODO: 接続時にブロードキャストメッセージ送信: broadcast.emit()

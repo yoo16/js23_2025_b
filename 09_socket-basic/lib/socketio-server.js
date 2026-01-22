@@ -25,8 +25,14 @@ export default (port, origin) => {
         socket.emit('connected', data)
 
         // TODO: 接続時にブロードキャストメッセージ送信: broadcast.emit()
+        // イベント名: joined
         // message: ${socket.id} が接続しました
         // date: 現在時刻
+        data = {
+            message: `${socket.id} が入室しました`,
+            date: dateString,
+        }
+        socket.broadcast.emit('joined', data)
 
         // TODO: メッセージ受信: on() イベント名: message
         socket.on('', (msg) => {

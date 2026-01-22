@@ -40,10 +40,10 @@ const updateStatus = (isConnected) => {
 // Socket.io インスタンス (Port 3002)
 const uri = 'http://localhost:3002';
 // TODO: Socket.ioインスタンス生成: io()
-const socketio = {};
+const socketio = io(uri);
 
 // TODO: 接続イベント: イベント名: connect
-socketio.on('', () => {
+socketio.on('connect', () => {
     socketId = socketio.id
     socketIdContainer.innerText = socketId;
     updateStatus(true);

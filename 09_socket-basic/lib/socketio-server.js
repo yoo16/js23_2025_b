@@ -21,8 +21,7 @@ export default (port, origin) => {
             message: "接続しました",
             date: dateString
         };
-        // TODO: message: 接続しました
-        // date: 現在時刻
+        socket.emit('connected', data)
 
         // TODO: 接続時にブロードキャストメッセージ送信: broadcast.emit()
         // message: ${socket.id} が接続しました

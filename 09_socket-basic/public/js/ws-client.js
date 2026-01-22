@@ -43,13 +43,13 @@ const updateStatus = (isConnected) => {
  */
 const url = 'ws://localhost:3001';
 // TODO: WebSocketインスタンス生成
-const ws = {};
+const ws = new WebSocket(url);
 
 // TODO: 接続完了時に呼ばれる
-// ws.onopen = (e) => {
-//     updateStatus(true);
-//     appendLog(`接続: ${url}`);
-// };
+ws.onopen = (e) => {
+    updateStatus(true);
+    appendLog(`接続: ${url}`);
+};
 
 // TODO: 切断
 // ws.onclose = () => updateStatus(false);

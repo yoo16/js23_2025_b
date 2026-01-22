@@ -80,7 +80,9 @@ function send() {
     if (!text) return;
 
     if (ws.readyState === WebSocket.OPEN) {
+        // サーバにメッセージを送信
         ws.send(text);
+        // テキストボックスをクリア
         messageInput.value = '';
     } else {
         alert('サーバーに接続されていません');

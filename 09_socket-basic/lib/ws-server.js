@@ -23,7 +23,7 @@ export default (port, origin) => {
         }));
 
         // TODO: メッセージ受信: message イベント
-        ws.on('', (buffer) => {
+        ws.on('message', (buffer) => {
             const data = JSON.stringify({
                 socketId: ws.id,
                 message: buffer.toString(),
@@ -33,6 +33,7 @@ export default (port, origin) => {
             wss.clients.forEach(client => {
                 if (client.readyState === 1) {
                     // TODO: クライアントにデータ送信: send()
+                    client.send(data)
                 }
             });
         });

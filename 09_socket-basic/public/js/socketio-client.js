@@ -55,8 +55,8 @@ socketio.on('disconnect', () => {
     updateStatus(false);
 });
 
-// TODO: 初回接続通知: イベント名: connected
-socketio.on('', (data) => {
+// TODO: ユーザ入室通に時: イベント名: joined
+socketio.on('joined', (data) => {
     appendLog(data.message);
 });
 

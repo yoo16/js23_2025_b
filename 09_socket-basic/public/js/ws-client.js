@@ -55,24 +55,24 @@ ws.onopen = (e) => {
 // ws.onclose = () => updateStatus(false);
 
 // TODO: メッセージ受信
-// ws.onmessage = (e) => {
-//     try {
-//         const data = JSON.parse(e.data);
-//         // IDの先頭6文字とメッセージを表示
-//         const sender = data.socketId ? data.socketId.substring(0, 6) : 'System';
+ws.onmessage = (e) => {
+    try {
+        const data = JSON.parse(e.data);
+        // IDの先頭6文字とメッセージを表示
+        const sender = data.socketId ? data.socketId.substring(0, 6) : 'System';
 
-//         // ID設定
-//         socketId = data.socketId;
-//         // ID表示
-//         socketIdContainer.innerText = socketId;
+        // ID設定
+        socketId = data.socketId;
+        // ID表示
+        socketIdContainer.innerText = socketId;
 
-//         // メッセージを表示
-//         const message = `${sender}: ${data.message}`;
-//         appendLog(message);
-//     } catch (err) {
-//         appendLog(`Error: ${e.data}`);
-//     }
-// };
+        // メッセージを表示
+        const message = `${sender}: ${data.message}`;
+        appendLog(message);
+    } catch (err) {
+        appendLog(`Error: ${e.data}`);
+    }
+};
 
 // 送信
 function send() {

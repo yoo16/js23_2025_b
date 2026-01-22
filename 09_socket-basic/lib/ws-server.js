@@ -39,17 +39,17 @@ export default (port, origin) => {
         });
 
         // TODO: 切断: close イベント
-        ws.on('', () => {
+        ws.on('close', () => {
             const data = JSON.stringify({
                 socketId: ws.id,
                 message: "wsサーバーから切断しました",
                 date: dateString
             });
             // 全クライアントに送信
-            wss.clients.forEach(client => {
-                if (client.readyState === 1) {
-                    // TODO: クライアントにデータ送信: send()
-                }
+            clients.forEach(client => {
+                console.log(`Disconnected: ${client}`);
+                // TODO: クライアントにデータ送信: send()
+                client.send(data)
             });
         });
     });

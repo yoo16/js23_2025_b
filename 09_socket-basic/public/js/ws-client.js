@@ -52,7 +52,7 @@ ws.onopen = (e) => {
 };
 
 // TODO: 切断
-// ws.onclose = () => updateStatus(false);
+ws.onclose = () => updateStatus(false);
 
 // TODO: メッセージ受信
 ws.onmessage = (e) => {

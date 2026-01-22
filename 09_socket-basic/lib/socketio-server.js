@@ -1,15 +1,15 @@
 // Socket.io インポート
-// import { Server } from 'socket.io';
+import { Server } from 'socket.io';
 import dotenv from 'dotenv';
 dotenv.config();
 
 export default (port, origin) => {
     // TODO: Socket.io サーバー起動: new Server()
     // TODO: cors origin 設定
-    const io = {};
+    const io = new Server(port, { cors: { origin }});
 
     // TODO: クライアント接続: connection イベント
-    io.on('', (socket) => {
+    io.on('connection', (socket) => {
         console.log(`[Socket.io] 接続: ${socket.id}`);
         const dateString = new Date().toLocaleTimeString();
         let data = {}
@@ -21,7 +21,7 @@ export default (port, origin) => {
             message: "接続しました",
             date: dateString
         };
-        // message: 接続しました
+        // TODO: message: 接続しました
         // date: 現在時刻
 
         // TODO: 接続時にブロードキャストメッセージ送信: broadcast.emit()

@@ -1,7 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import wsServer from './lib/ws-server.js';
-// import ioServer from './lib/socketio-server.js';
+import ioServer from './lib/socketio-server.js';
 
 // .envを読み込む
 dotenv.config();
@@ -24,4 +24,4 @@ app.listen(PORT, () => console.log(`Web: http://${HOST}:${PORT}`));
 wsServer(WS_PORT, CORS_ORIGIN);
 
 // 4. Socket.ioサーバー起動 (Port 3002)
-// ioServer(SOCKETIO_PORT, CORS_ORIGIN);
+ioServer(SOCKETIO_PORT, CORS_ORIGIN);

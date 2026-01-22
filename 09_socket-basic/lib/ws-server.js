@@ -7,7 +7,7 @@ export default (port, origin) => {
     const wss = new WebSocketServer({ port, cors: { origin } });
 
     // TODO: クライアント接続: connection イベント
-    wss.on('', (ws) => {
+    wss.on('connection', (ws) => {
         // TODO: WebSocketにIDを付与
         ws.id = crypto.randomUUID();
         const dateString = new Date().toLocaleTimeString();

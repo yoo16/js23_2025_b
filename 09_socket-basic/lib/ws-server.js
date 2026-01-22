@@ -1,10 +1,10 @@
 // TODO: WebSocketServerインポート
-// import { WebSocketServer } from 'ws';
+import { WebSocketServer } from 'ws';
 import crypto from 'crypto';
 
 export default (port, origin) => {
     // TODO: WebSocketサーバー起動: new WebSocketServer()
-    const wss = {};
+    const wss = new WebSocketServer({ port, cors: { origin } });
 
     // TODO: クライアント接続: connection イベント
     wss.on('', (ws) => {

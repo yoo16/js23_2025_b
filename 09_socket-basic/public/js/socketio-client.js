@@ -61,7 +61,7 @@ socketio.on('joined', (data) => {
 });
 
 // TODO: メッセージ受信: イベント名: message
-socketio.on('', (data) => {
+socketio.on('message', (data) => {
     const sender = senderName(data.socketId);
     const message = `${sender}: ${data.message}`;
     appendLog(message);
@@ -79,6 +79,7 @@ function send() {
 
     // TODO: メッセージ送信: emit()
     // イベント名: message
+    socketio.emit('message', text)
 
     // 入力クリア
     messageInput.value = '';

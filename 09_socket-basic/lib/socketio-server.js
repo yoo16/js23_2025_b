@@ -35,14 +35,15 @@ export default (port, origin) => {
         socket.broadcast.emit('joined', data)
 
         // TODO: メッセージ受信: on() イベント名: message
-        socket.on('', (msg) => {
-            // TODO: 全クライアントに送信: io.emit()
+        socket.on('message', (msg) => {
             // イベント名: message
             data = {
                 socketId: socket.id,
                 message: msg,
                 date: dateString
             };
+            // TODO: 全クライアントに送信: io.emit()
+            io.emit('message', data)
         });
 
         // 切断

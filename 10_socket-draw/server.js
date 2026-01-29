@@ -27,7 +27,7 @@ io.on("connection", (socket) => {
     // TODO: ルームへの参加
     socket.on("join-room", (roomName) => {
         // TODO: ルームへの参加
-        // socket.join(roomName);
+        socket.join(roomName);
 
         // TODO: 現在のルーム名を保存
         socket.currentRoom = roomName;
@@ -48,6 +48,7 @@ io.on("connection", (socket) => {
         // 送信先: 入室ユーザー
         // イベント名: join-room
         // データ: roomName
+        socket.emit("join-room", roomName)
     });
 
     // 特定のルームにのみ描画データを送信

@@ -16,7 +16,7 @@ const server = http.createServer(app);
 // public フォルダを静的配信
 app.use(express.static('public'));
 
-// ルームデータ
+// ルームデータ（履歴保存用）
 const roomData = {};
 
 // Socket.IO サーバーを作成

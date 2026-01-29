@@ -78,6 +78,7 @@ io.on("connection", (socket) => {
             // 送信先: 特定のルーム
             // イベント名: clear
             // データ: room
+            socket.to(room).emit("clear")
         }
     });
 });

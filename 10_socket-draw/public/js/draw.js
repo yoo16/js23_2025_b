@@ -40,6 +40,7 @@ joinBtn.addEventListener("click", () => {
     // TODO: サーバーにルーム参加を通知
     // イベント名: join-room
     // データ: roomName
+    socket.emit("join-room", roomName)
 });
 
 // モード切り替え時のUI更新関数
@@ -158,7 +159,7 @@ eraserBtn.addEventListener("click", () => {
 
 // Socket通信
 // TODO: 入室受信 イベント名: join-room
-socket.on("", (roomName) => {
+socket.on("join-room", (roomName) => {
     // 現在のルーム名保存
     currentRoom = roomName;
     // UI表示

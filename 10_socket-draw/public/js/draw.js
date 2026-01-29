@@ -141,6 +141,7 @@ clearBtn.addEventListener("click", () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     // TODO: クリア通知
     // イベント名: clear
+    socket.emit("clear");
 });
 
 // ペン機能切り替え
@@ -176,7 +177,7 @@ socket.on("draw", (d) => {
 });
 
 // TODO: ドロークリア イベント名: clear
-socket.on("", () => {
+socket.on("clear", () => {
     // Canvasをクリア
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 });

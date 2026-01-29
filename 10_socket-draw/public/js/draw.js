@@ -1,3 +1,5 @@
+// Socket.IO クライアント接続: http://localhost:3000 に接続
+// 結果: ws://localhost:3000/socket.io/?EIO=4&transport=websocket
 const socket = io();
 
 // Room UI

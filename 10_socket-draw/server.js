@@ -63,6 +63,7 @@ io.on("connection", (socket) => {
             // 送信先: 特定のルーム
             // イベント名: draw
             // データ: data
+            socket.to(room).emit("draw", data);
         }
     });
 

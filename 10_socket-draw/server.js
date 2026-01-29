@@ -39,6 +39,7 @@ io.on("connection", (socket) => {
             // 送信先: 入室ユーザー
             // イベント名: history
             // データ: roomData[roomName]
+            socket.emit("history", roomData[roomName]);
         } else {
             // ルームの履歴を初期化
             roomData[roomName] = [];
@@ -57,7 +58,7 @@ io.on("connection", (socket) => {
         const room = socket.currentRoom;
         if (room) {
             // TODO: 履歴追加
-            // roomData[room].push(data);
+            roomData[room].push(data);
 
             // TODO: 特定のルームにのみ描画データを送信
             // 送信先: 特定のルーム

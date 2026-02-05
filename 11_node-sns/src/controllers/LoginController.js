@@ -24,8 +24,8 @@ export const auth = async (req, res) => {
     // ログイン失敗
     if (!user) {
         // TODO: セッション登録
-        // req.session.input = { email };
-        // req.session.errors = ["メールアドレスとパスワードが間違っています。"];
+        req.session.input = { email };
+        req.session.errors = ["メールアドレスとパスワードが間違っています。"];
         return res.redirect("/login");
     }
 

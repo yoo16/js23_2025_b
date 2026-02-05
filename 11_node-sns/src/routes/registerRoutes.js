@@ -1,5 +1,6 @@
 import { Router } from "express";
 import * as RegisterController from "../controllers/RegisterController.js";
+// middlewares フォルダの validator.js をインポート
 import { validate, registerValidationRules } from "../middlewares/validator.js";
 
 // Auth Router

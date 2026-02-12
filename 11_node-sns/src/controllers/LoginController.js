@@ -34,10 +34,7 @@ export const auth = async (req, res) => {
     req.session.authUser = user;
 
     // JWT: アクセストークン: Cookie保存
-    // authService.setAuthCookies(res, accessToken, refreshToken);
-
-    // JWT: リフレッシュトークンDB更新
-    // await userModel.updateRefreshToken(user.id, refreshToken);
+    authService.setAuthCookies(res, accessToken, refreshToken);
 
     // セッションクリア
     req.session.errors = [];

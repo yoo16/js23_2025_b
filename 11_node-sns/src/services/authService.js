@@ -26,9 +26,18 @@ export async function verifyLogin(email, password) {
 // トークン生成
 export const generateTokens = (id) => {
     // TODO: アクセストークン生成: jwt.sign(): 15m
-    const accessToken = "";
+    const accessToken = jwt.sign(
+        { id }, 
+        process.env.JWT_SECRET, 
+        { expiresIn: "15m" }
+    );
     // TODO: リフレッシュトークン生成: jwt.sign(): 30d
-    const refreshToken = "";
+    const refreshToken = 
+        jwt.sign(
+            { id }, 
+            process.env.JWT_SECRET, 
+            { expiresIn: "30d" }
+        );
     return { accessToken, refreshToken };
 };
 

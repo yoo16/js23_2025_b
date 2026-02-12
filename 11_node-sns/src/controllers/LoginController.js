@@ -47,6 +47,7 @@ export const auth = async (req, res) => {
 // ログアウト
 export const logout = async (req, res) => {
     const user = req.session?.authUser;
+    // セッションにログインユーザーがなければ/loginへリダイレクト
     if (!user) return res.redirect("/login");
 
     // 1. DBのリフレッシュトークンを消去

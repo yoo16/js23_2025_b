@@ -59,4 +59,6 @@ export const setAuthCookies = (res, accessToken, refreshToken) => {
 // Cookie削除
 export const clearAuthCookies = (res) => {
     // TODO: Cookie削除: res.clearCookie()
+    res.clearCookie("accessToken");
+    res.clearCookie("refreshToken");
 };
